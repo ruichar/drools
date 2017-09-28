@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="ruleFlowDemo1" name="ruleflow1." >
+
+    <!-- nodes -->
+    <startEvent id="c0446cee-1425-402d-8179-ca28ae02e9f3" name="Start"  isInterrupting="false">
+    </startEvent>
+    <businessRuleTask id="5006e5ea-1a36-404a-9c4c-cf09e4698890" name="规则1" g:ruleFlowGroup="Group1" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <businessRuleTask id="f120b83e-fa5c-4a5e-b106-f84f023b000c" name="规则2" g:ruleFlowGroup="Group2" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <endEvent id="12c9b56d-366b-4886-8c4f-9c97f9be54a1" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="c0446cee-1425-402d-8179-ca28ae02e9f3-5006e5ea-1a36-404a-9c4c-cf09e4698890" sourceRef="c0446cee-1425-402d-8179-ca28ae02e9f3" targetRef="5006e5ea-1a36-404a-9c4c-cf09e4698890" />
+    <sequenceFlow id="5006e5ea-1a36-404a-9c4c-cf09e4698890-f120b83e-fa5c-4a5e-b106-f84f023b000c" sourceRef="5006e5ea-1a36-404a-9c4c-cf09e4698890" targetRef="f120b83e-fa5c-4a5e-b106-f84f023b000c" />
+    <sequenceFlow id="f120b83e-fa5c-4a5e-b106-f84f023b000c-12c9b56d-366b-4886-8c4f-9c97f9be54a1" sourceRef="f120b83e-fa5c-4a5e-b106-f84f023b000c" targetRef="12c9b56d-366b-4886-8c4f-9c97f9be54a1" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="ruleFlowDemo1" >
+      <bpmndi:BPMNShape bpmnElement="c0446cee-1425-402d-8179-ca28ae02e9f3" >
+        <dc:Bounds x="249" y="47" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="5006e5ea-1a36-404a-9c4c-cf09e4698890" >
+        <dc:Bounds x="199" y="144" width="158" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="f120b83e-fa5c-4a5e-b106-f84f023b000c" >
+        <dc:Bounds x="186" y="258" width="185" height="67" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="12c9b56d-366b-4886-8c4f-9c97f9be54a1" >
+        <dc:Bounds x="247" y="371" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="c0446cee-1425-402d-8179-ca28ae02e9f3-5006e5ea-1a36-404a-9c4c-cf09e4698890" >
+        <di:waypoint x="273" y="71" />
+        <di:waypoint x="278" y="176" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="5006e5ea-1a36-404a-9c4c-cf09e4698890-f120b83e-fa5c-4a5e-b106-f84f023b000c" >
+        <di:waypoint x="278" y="176" />
+        <di:waypoint x="278" y="291" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="f120b83e-fa5c-4a5e-b106-f84f023b000c-12c9b56d-366b-4886-8c4f-9c97f9be54a1" >
+        <di:waypoint x="278" y="291" />
+        <di:waypoint x="270" y="395" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

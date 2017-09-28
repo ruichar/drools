@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="ruleFlowDemo2" name="ruleFlowDemo2" >
+
+    <extensionElements>
+     <tns:import name="com.drools.flow.entity.Student" />
+    </extensionElements>
+    <!-- nodes -->
+    <startEvent id="c0446cee-1425-402d-8179-ca28ae02e9f3" name="开始"  isInterrupting="false">
+    </startEvent>
+    <businessRuleTask id="5006e5ea-1a36-404a-9c4c-cf09e4698890" name="规则4" g:ruleFlowGroup="Group4" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <businessRuleTask id="f120b83e-fa5c-4a5e-b106-f84f023b000c" name="规则3" g:ruleFlowGroup="Group3" 
+ implementation="http://www.jboss.org/drools/rule" >
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </businessRuleTask>
+    <endEvent id="12c9b56d-366b-4886-8c4f-9c97f9be54a1" name="结束" >
+        <terminateEventDefinition />
+    </endEvent>
+    <inclusiveGateway id="23ff8940-381b-431d-a180-fe3aa269a30b" name="Gateway" gatewayDirection="Diverging" >
+    </inclusiveGateway>
+    <exclusiveGateway id="ba5e90cd-98d2-4b36-a36b-dad48f95c234" name="Gateway" gatewayDirection="Converging" >
+    </exclusiveGateway>
+
+    <!-- connections -->
+    <sequenceFlow id="23ff8940-381b-431d-a180-fe3aa269a30b-5006e5ea-1a36-404a-9c4c-cf09e4698890" sourceRef="23ff8940-381b-431d-a180-fe3aa269a30b" targetRef="5006e5ea-1a36-404a-9c4c-cf09e4698890" name="constraint" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >Student(score&lt;=700)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="23ff8940-381b-431d-a180-fe3aa269a30b-f120b83e-fa5c-4a5e-b106-f84f023b000c" sourceRef="23ff8940-381b-431d-a180-fe3aa269a30b" targetRef="f120b83e-fa5c-4a5e-b106-f84f023b000c" name="constraint" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >Student(score&gt;700)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="ba5e90cd-98d2-4b36-a36b-dad48f95c234-12c9b56d-366b-4886-8c4f-9c97f9be54a1" sourceRef="ba5e90cd-98d2-4b36-a36b-dad48f95c234" targetRef="12c9b56d-366b-4886-8c4f-9c97f9be54a1" />
+    <sequenceFlow id="c0446cee-1425-402d-8179-ca28ae02e9f3-23ff8940-381b-431d-a180-fe3aa269a30b" sourceRef="c0446cee-1425-402d-8179-ca28ae02e9f3" targetRef="23ff8940-381b-431d-a180-fe3aa269a30b" />
+    <sequenceFlow id="f120b83e-fa5c-4a5e-b106-f84f023b000c-ba5e90cd-98d2-4b36-a36b-dad48f95c234" sourceRef="f120b83e-fa5c-4a5e-b106-f84f023b000c" targetRef="ba5e90cd-98d2-4b36-a36b-dad48f95c234" />
+    <sequenceFlow id="5006e5ea-1a36-404a-9c4c-cf09e4698890-ba5e90cd-98d2-4b36-a36b-dad48f95c234" sourceRef="5006e5ea-1a36-404a-9c4c-cf09e4698890" targetRef="ba5e90cd-98d2-4b36-a36b-dad48f95c234" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="ruleFlowDemo2" >
+      <bpmndi:BPMNShape bpmnElement="c0446cee-1425-402d-8179-ca28ae02e9f3" >
+        <dc:Bounds x="354" y="49" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="5006e5ea-1a36-404a-9c4c-cf09e4698890" >
+        <dc:Bounds x="425" y="257" width="158" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="f120b83e-fa5c-4a5e-b106-f84f023b000c" >
+        <dc:Bounds x="246" y="258" width="129" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="12c9b56d-366b-4886-8c4f-9c97f9be54a1" >
+        <dc:Bounds x="363" y="431" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="23ff8940-381b-431d-a180-fe3aa269a30b" >
+        <dc:Bounds x="367" y="139" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ba5e90cd-98d2-4b36-a36b-dad48f95c234" >
+        <dc:Bounds x="368" y="345" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="23ff8940-381b-431d-a180-fe3aa269a30b-5006e5ea-1a36-404a-9c4c-cf09e4698890" >
+        <di:waypoint x="391" y="162" />
+        <di:waypoint x="504" y="289" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="23ff8940-381b-431d-a180-fe3aa269a30b-f120b83e-fa5c-4a5e-b106-f84f023b000c" >
+        <di:waypoint x="391" y="162" />
+        <di:waypoint x="310" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="ba5e90cd-98d2-4b36-a36b-dad48f95c234-12c9b56d-366b-4886-8c4f-9c97f9be54a1" >
+        <di:waypoint x="392" y="369" />
+        <di:waypoint x="387" y="455" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="c0446cee-1425-402d-8179-ca28ae02e9f3-23ff8940-381b-431d-a180-fe3aa269a30b" >
+        <di:waypoint x="378" y="73" />
+        <di:waypoint x="391" y="162" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="f120b83e-fa5c-4a5e-b106-f84f023b000c-ba5e90cd-98d2-4b36-a36b-dad48f95c234" >
+        <di:waypoint x="310" y="290" />
+        <di:waypoint x="392" y="369" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="5006e5ea-1a36-404a-9c4c-cf09e4698890-ba5e90cd-98d2-4b36-a36b-dad48f95c234" >
+        <di:waypoint x="504" y="289" />
+        <di:waypoint x="392" y="369" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

@@ -1,0 +1,20 @@
+package com.flow.demo
+import com.drools.flow.entity.Student
+rule "flow1"
+	ruleflow-group "Group1"
+    when
+        Student()
+    then
+        System.out.println("===执行规则："+drools.getRule().getName());
+		System.out.println("===执行规则b包名："+drools.getRule().getPackageName());
+end
+
+rule "flow2"
+	ruleflow-group "Group2"
+    when
+        Student()
+    then
+        System.out.println("===执行规则："+drools.getRule().getName());
+		System.out.println("===执行规则b包名："+drools.getRule().getPackageName());
+end
+
